@@ -1,6 +1,6 @@
 ﻿namespace RequiemHealth.Database.Entities;
 
-public class Departament
+public class Department
 {
     public int Id { get; set; }
     

@@ -10,5 +10,5 @@ public class Hospital
     
     public string Street { get; set; }
     
-    public ICollection<Departament> Departaments { get; set; }
+    public ICollection<Department> Departaments { get; set; }
 }

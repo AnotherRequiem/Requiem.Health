@@ -12,7 +12,7 @@ public class ApplicationDbContext : DbContext
     
     public DbSet<Hospital> Hospitals { get; set; }
     
-    public DbSet<Departament> Departaments { get; set; }
+    public DbSet<Department> Departaments { get; set; }
     
     public DbSet<Employee> Employees { get; set; }
     

@@ -7,16 +7,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="HotChocolate.AspNetCore" Version="13.5.1" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.4"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <ProjectReference Include="..\RequiemHealth.DataAccess\RequiemHealth.DataAccess.csproj" />
       <ProjectReference Include="..\RequiemHealth.Database\RequiemHealth.Database.csproj" />
+      <ProjectReference Include="..\RequiemHealth.Utilities\RequiemHealth.Utilities.csproj" />
     </ItemGroup>
 
 </Project>

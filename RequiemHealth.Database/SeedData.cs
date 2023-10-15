@@ -25,9 +25,9 @@ public static class SeedData
             Name = "Massachusetts General Hospital",
             City = "Boston",
             Street = "55 Fruit Street",
-            Departaments = new List<Departament>
+            Departaments = new List<Department>
             {
-                new Departament
+                new Department
                 {
                     Name = "Cardiology",
                     Employees = new List<Employee>
@@ -65,7 +65,7 @@ public static class SeedData
                         }
                     }
                 },
-                new Departament
+                new Department
                 {
                     Name = "General surgery",
                     Employees = new List<Employee>
@@ -90,7 +90,7 @@ public static class SeedData
                         },
                     }
                 },
-                new Departament
+                new Department
                 {
                     Name = "Anesthesiology",
                     Employees = new List<Employee>
@@ -125,9 +125,9 @@ public static class SeedData
             Name = "Lutheran Community Hospital",
             City = "Kyiv",
             Street = "Bazhana 12A",
-            Departaments = new List<Departament>
+            Departaments = new List<Department>
             {
-                new Departament
+                new Department
                 {
                     Name = "Oncology",
                     Employees = new List<Employee>
@@ -140,7 +140,7 @@ public static class SeedData
                         }
                     }
                 },
-                new Departament
+                new Department
                 {
                     Name = "Rheumatology",
                     Employees = new List<Employee>
@@ -159,7 +159,7 @@ public static class SeedData
                         }
                     }
                 },
-                new Departament
+                new Department
                 {
                     Name = "Gastroenterology",
                     Employees = new List<Employee>

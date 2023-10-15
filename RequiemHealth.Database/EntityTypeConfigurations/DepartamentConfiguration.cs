@@ -4,9 +4,9 @@ using RequiemHealth.Database.Entities;
 
 namespace RequiemHealth.Database.EntityTypeConfigurations;
 
-public class DepartamentConfiguration : IEntityTypeConfiguration<Departament>
+public class DepartamentConfiguration : IEntityTypeConfiguration<Department>
 {
-    public void Configure(EntityTypeBuilder<Departament> builder)
+    public void Configure(EntityTypeBuilder<Department> builder)
     {
         builder.HasKey(dp => dp.Id);
         builder.HasIndex(dp => dp.Id).IsUnique();
