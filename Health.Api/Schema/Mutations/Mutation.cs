@@ -1,18 +1,42 @@
-﻿using Health.Api.Schema.Types.MutationTypes.HospitalMutationTypes;
+﻿using Health.Api.Schema.Types.MutationTypes.DepartmentMutationTypes;
+using Health.Api.Schema.Types.MutationTypes.HospitalMutationTypes;
 using Health.Domain.Entities;
 using Health.Persistence.Repositories;
 
 namespace Health.Api.Schema.Mutations;
 
-public class HospitalMutation
+public class Mutation
 {
-    private readonly HospitalRepository _repository;
+    private readonly HospitalRepository _hospitalRepository;
+    private readonly DepartmentRepository _departmentRepository;
 
-    public HospitalMutation(HospitalRepository repository)
+    public Mutation(HospitalRepository hospitalRepository, DepartmentRepository departmentRepository)
     {
-        _repository = repository;
+        _hospitalRepository = hospitalRepository;
+        _departmentRepository = departmentRepository;
     }
+    
+    public async Task<DepartmentTypeResult> CreateDepartment(DepartmentTypeInput departmentTypeInput)
+    {
+        var department = new Department()
+        {
+            Id = Guid.NewGuid(),
+            Name = departmentTypeInput.Name,
+            HospitalId = departmentTypeInput.HospitalId
+        };
 
+        department = await _departmentRepository.Add(department);
+
+        var departmentResult = new DepartmentTypeResult()
+        {
+            Id = department.Id,
+            Name = department.Name,
+            HospitalId = department.HospitalId
+        };
+        
+        return departmentResult;
+    }
+    
     public async Task<HospitalTypeResult> CreateHospital(HospitalTypeInput hospitalTypeInput)
     {
         var hospital = new Hospital()
@@ -23,7 +47,7 @@ public class HospitalMutation
             Street = hospitalTypeInput.Street
         };
 
-        hospital = await _repository.Add(hospital);
+        hospital = await _hospitalRepository.Add(hospital);
 
         var hospitalResult = new HospitalTypeResult()
         {
@@ -46,7 +70,7 @@ public class HospitalMutation
             Street = hospitalTypeInput.Street
         };
 
-        hospital = await _repository.Update(hospital);
+        hospital = await _hospitalRepository.Update(hospital);
         
         var hospitalResult = new HospitalTypeResult()
         {
@@ -61,6 +85,6 @@ public class HospitalMutation
 
     public async Task<bool> DeleteHospital(Guid id)
     {
-        return await _repository.Remove(id);
+        return await _hospitalRepository.Remove(id);
     }
 }

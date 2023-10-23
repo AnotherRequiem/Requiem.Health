@@ -4,11 +4,11 @@ using Health.Persistence.Repositories;
 
 namespace Health.Api.Schema.Queries;
 
-public class HospitalQuery
+public class Query
 {
     private readonly HospitalRepository _repository;
 
-    public HospitalQuery(HospitalRepository repository)
+    public Query(HospitalRepository repository)
     {
         _repository = repository;
     }

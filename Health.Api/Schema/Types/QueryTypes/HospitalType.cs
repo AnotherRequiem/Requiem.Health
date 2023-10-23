@@ -1,4 +1,6 @@
-﻿namespace Health.Api.Schema;
+﻿using Health.Domain.Entities;
+
+namespace Health.Api.Schema;
 
 public class HospitalType
 {
@@ -9,4 +11,6 @@ public class HospitalType
     public string City { get; set; }
     
     public string Street { get; set; }
+    
+    //public ICollection<Department> Departments { get; set; }
 }

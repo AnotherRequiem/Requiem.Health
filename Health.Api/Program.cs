@@ -6,13 +6,13 @@ using Health.Persistence.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddGraphQLServer()
-                .AddQueryType<HospitalQuery>()
-                .AddMutationType<HospitalMutation>()
-                .AddMutationType<DepartmentMutation>();
+                .AddQueryType<Query>()
+                .AddMutationType<Mutation>();
+                
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddDbContextFactory<ApplicationDbContext>();
 builder.Services.AddScoped<HospitalRepository>()
-                .AddScoped<DepartmentMutation>();
+                .AddScoped<DepartmentRepository>();
 
 var app = builder.Build();
 

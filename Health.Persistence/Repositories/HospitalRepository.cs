@@ -18,13 +18,13 @@ public class HospitalRepository : IHospitalRepository
     {
         await using ApplicationDbContext context = await _contextFactory.CreateDbContextAsync();
         
-        return await context.Hospitals.ToListAsync();
+        return await context.Hospitals.Include(h => h.Departments).ToListAsync();
     }
 
     public async Task<Hospital> GetById(Guid hospitalId)
     {
         await using ApplicationDbContext context = await _contextFactory.CreateDbContextAsync();
-        var hospital = await context.Hospitals.FirstOrDefaultAsync(p => p.Id == hospitalId);
+        var hospital = await context.Hospitals.Include(h => h.Departments).FirstOrDefaultAsync(p => p.Id == hospitalId);
         
         if (hospital == null) throw new NotFoundException(nameof(Hospital), hospitalId);
         
